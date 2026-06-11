@@ -149,7 +149,7 @@ class _MypagePageState extends State<MypagePage> {
                       Text(
                         id,
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 20,
                             fontWeight: .bold
                         ),
                       ),
@@ -157,13 +157,14 @@ class _MypagePageState extends State<MypagePage> {
                       Text(
                         profile,
                         style: TextStyle(
-                            fontSize: 17
+                            fontSize: 14
                         ),
                       ),
                     ],
                   ),
                 ],
               ),
+
             ],
           )
       ),
