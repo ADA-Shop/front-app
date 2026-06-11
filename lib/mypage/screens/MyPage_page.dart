@@ -1,3 +1,4 @@
+import 'package:adaapp/splash/screens/Login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:adaapp/mypage/widgets/custombox.dart';
 import 'package:adaapp/mypage/widgets/mypagebutton.dart';
@@ -180,8 +181,62 @@ class _MypagePageState extends State<MypagePage> {
                   icon: Icon(Icons.money),
                   text: '판매내역'
               ),
+              Divider(color: Colors.grey[200],),
+              SizedBox(height: 70,),
               Mypagebutton(
-                  onTap: (){},
+                  onTap: (){
+                    // Container(
+                    //   margin: EdgeInsets.symmetric(horizontal: 10),
+                    //   width: .infinity,
+                    //   height: 150,
+                    //   decoration: BoxDecoration(
+                    //     borderRadius: .circular(10),
+                    //     color: Colors.white
+                    //   ),
+                    //   child: Column(
+                    //     crossAxisAlignment: .start,
+                    //     children: [
+                    //       Text(
+                    //           '정말 로그아웃 하시겠습니까 ?',
+                    //         style: TextStyle(
+                    //           color: Colors.black,
+                    //           fontSize: 18,
+                    //         ),
+                    //       ),
+                    //       Text(
+                    //         '로그아웃시 회원 정보 일부가 날라갈 수 있습니다.',
+                    //         style: TextStyle(
+                    //           color: Colors.black,
+                    //           fontSize: 14,
+                    //         ),
+                    //       ),
+                    //       Row(
+                    //         children: [
+                    //           TextButton(
+                    //               onPressed: (){
+                    //                 Navigator.pop(context);
+                    //               },
+                    //               child: Text('취소')
+                    //           ),
+                    //           TextButton(
+                    //               onPressed: (){
+                    //                 Navigator.pushReplacement(
+                    //                     context,
+                    //                     MaterialPageRoute(builder: (context) => LoginPage())
+                    //                 );
+                    //               },
+                    //               child: Text('확인')
+                    //           )
+                    //         ],
+                    //       ),
+                    //     ],
+                    //   )
+                    // );
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage())
+                    );
+                  },
                   icon: Icon(Icons.outbound_outlined),
                   text: '로그아웃'
               ),

@@ -27,9 +27,9 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             SizedBox(height: 170),
             Text(
-              '중고상점',
+              'GS27',
               style: TextStyle(
-                color: Colors.blueAccent,
+                color: Colors.blue,
                 fontSize: 40,
                 fontWeight: FontWeight.w800,
               ),
@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
             Text(
               '중고거래와 상점운영이 한번에 가능한 플랫폼',
               style: TextStyle(
-                color: Colors.blueAccent,
+                color: Colors.blue,
                 fontSize: 15,
                 fontWeight: FontWeight.w600,
               ),
@@ -63,6 +63,9 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   TextField(
                     controller: idcontroller,
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
                     decoration: InputDecoration(
                       hintText: '아이디',
                       hintStyle: TextStyle(
@@ -79,6 +82,9 @@ class _LoginPageState extends State<LoginPage> {
                   TextField(
                     obscureText: ishidden,
                     controller: pwcontroller,
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
                     decoration: InputDecoration(
                       hintText: '비밀번호',
                       hintStyle: TextStyle(
@@ -108,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                     margin: EdgeInsets.only(top: 40),
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Colors.blueAccent,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: TextButton(
@@ -187,7 +193,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Text(
                     '회원가입',
                     style: TextStyle(
-                      color: Colors.blueAccent,
+                      color: Colors.blue,
                       fontSize: 13,
                       fontWeight: FontWeight.bold,
                     ),

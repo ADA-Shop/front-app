@@ -1,5 +1,7 @@
 import 'dart:async';
-
+import 'package:adaapp/Home/screens/Home_Page.dart';
+import 'package:adaapp/add/widgets/catebutton.dart';
+import 'package:adaapp/main.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -29,6 +31,16 @@ class _AddPageState extends State<AddPage> {
   final namecontroller = TextEditingController();
   final pricecontroller = TextEditingController();
   final descriptioncontroller = TextEditingController();
+
+  List<String> cates = [
+    '전자기기',
+    '패션/의류',
+    '식품/생필품',
+    '도서/서적',
+    '기타'
+  ];
+
+  List selectcate = [];
 
   List<File> images = [];
   final picker = ImagePicker();
@@ -143,6 +155,52 @@ class _AddPageState extends State<AddPage> {
               ),
             ),
           ),
+          SizedBox(height: 15,),
+
+          Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: .start,
+              children: [
+                Text(
+                    '카테고리',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: .w600
+                  ),
+                ),
+                SizedBox(height: 7,),
+                SizedBox(
+                  height: 45,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: cates.length,
+                      itemBuilder: (context,index) {
+                        final cate = cates[index];
+
+                        final selected = selectcate.contains(cate);
+
+                        return Catebutton(
+                            text: cate,
+                            selected: selected,
+                            onTap: (){
+                              setState(() {
+                                if(selected) {
+                                  selectcate.remove(cate);
+                                }
+                                else {
+                                  selectcate.add(cate);
+                                }
+                              });
+                            }
+                        );
+                      }
+                  ),
+                ),
+                SizedBox(height: 5,),
+              ],
+            ),
+          ),
 
           inputField('상품명', '상품명을 입력하세요',namecontroller),
           inputField('가격', '가격을 입력하세요',pricecontroller),
@@ -154,50 +212,37 @@ class _AddPageState extends State<AddPage> {
             padding: EdgeInsets.symmetric(horizontal: 30),
             child: ElevatedButton(
               onPressed: () {
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        backgroundColor: Colors.white,
-                        title: Text(
-                          '등록완료!',
-                          style: TextStyle(
-                              color: Colors.black,
-                            fontSize: 17,
-                          ),textAlign: TextAlign.center,
-                        ),
-                        actions: [
-                          Center(
-                            child: TextButton(
-                                onPressed: (){
-                                  Navigator.pop(context);
+                if (namecontroller.text.isEmpty){
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('상품명을 입력해주세요'))
+                  );
+                }
+                else if (pricecontroller.text.isEmpty){
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('가격을 입력해주세요'))
+                  );
+                }
+                else if (descriptioncontroller.text.isEmpty){
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('설명을 입력해주세요'))
+                  );
+                }
+                else {
+                  namecontroller.clear();
+                  pricecontroller.clear();
+                  descriptioncontroller.clear();
+                  selectcate.clear();
 
-                                  namecontroller.clear();
-                                  pricecontroller.clear();
-                                  descriptioncontroller.clear();
-
-                                  setState(() {
-                                    images.clear();
-                                  });
-                                },
-                                child: Text(
-                                  '확인',
-                                  style: TextStyle(
-                                    color: Colors.blueAccent,
-                                    fontSize: 14
-                                  ),
-                                )
-                            ),
-                          )
-                        ],
-                      );
-                    }
-                );
+                  Navigator.pushReplacement(
+                      context,
+                    MaterialPageRoute(builder: (context) => Adaapp())
+                  );
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(15),
                 ),
                 minimumSize: Size(double.infinity, 50),
               ),
