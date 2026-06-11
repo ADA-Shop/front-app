@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:adaapp/mypage/widgets/custombox.dart';
-import 'package:adaapp/mypage/widgets/custombutton.dart';
+import 'package:adaapp/mypage/widgets/mypagebutton.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
@@ -164,7 +164,27 @@ class _MypagePageState extends State<MypagePage> {
                   ),
                 ],
               ),
-
+              SizedBox(height: 40,),
+              Mypagebutton(
+                  onTap: (){},
+                  icon: Icon(Icons.shopping_cart_outlined),
+                  text: '내 상품'
+              ),
+              Mypagebutton(
+                  onTap: (){},
+                  icon: Icon(Icons.receipt),
+                  text: '구매내역'
+              ),
+              Mypagebutton(
+                  onTap: (){},
+                  icon: Icon(Icons.money),
+                  text: '판매내역'
+              ),
+              Mypagebutton(
+                  onTap: (){},
+                  icon: Icon(Icons.outbound_outlined),
+                  text: '로그아웃'
+              ),
             ],
           )
       ),
