@@ -1,3 +1,4 @@
+import 'package:adaapp/product/screens/productdetailpage.dart';
 import 'package:flutter/material.dart';
 import 'package:adaapp/Category/widgets/customcategorybutton.dart';
 
@@ -113,14 +114,22 @@ class _CategoryPageState extends State<CategoryPage> {
                   mainAxisSpacing: 10,
                 ),
                 itemBuilder: (context, index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Text(
-                        '$selectCategory 상품 ${index + 1}',
+                  return GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Productdetailpage(index: index))
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade200,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                        child: Text(
+                          '$selectCategory 상품 ${index + 1}',
+                        ),
                       ),
                     ),
                   );
