@@ -15,22 +15,28 @@ class Mypagebutton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Divider(color: Colors.grey[200],),
-          GestureDetector(
-            onTap: onTap,
-            child: Row(
-              children: [
-                icon,
-                SizedBox(width: 5,),
-                Text(text)
-              ],
-            ),
-          )
-        ],
-      ),
+    return Column(
+      children: [
+        Divider(color: Colors.grey[200],),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+          child: Column(
+            children: [
+              GestureDetector(
+                onTap: onTap,
+                child: Row(
+                  children: [
+                    icon,
+                    SizedBox(width: 5,),
+                    Text(text)
+                  ],
+                ),
+              )
+            ],
+          ),
+        )
+      ],
     );
   }
 }
+
