@@ -25,7 +25,7 @@ class Customcategorybutton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: Colors.blueAccent,
+          color: Colors.blue,
           borderRadius: BorderRadius.circular(7),
         ),
         child: Text(

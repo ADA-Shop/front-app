@@ -1,4 +1,5 @@
 import 'package:adaapp/Home/screens/Home_Page.dart';
+import 'package:adaapp/main.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -116,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomePage(),
+                              builder: (context) => Adaapp(),
                             ),
                           );
                         }

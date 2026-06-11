@@ -1,6 +1,4 @@
 import 'package:adaapp/Category/screens/Category_Page.dart';
-import 'package:adaapp/add/screens/add_page.dart';
-import 'package:adaapp/mypage/screens/MyPage_page.dart';
 import 'package:flutter/material.dart';
 import 'package:adaapp/Home/widgets/customselectionbox.dart';
 import 'package:adaapp/Home/widgets/customcategorybutton.dart';
@@ -13,8 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool isAdmin = true;
-  int currentIndex = 0;
+  bool isAdmin = false;
   List<String> ManualList = [];
   final controller = TextEditingController();
 
@@ -42,7 +39,7 @@ class _HomePageState extends State<HomePage> {
         ),
       );
     }
-    Widget HomePage = ListView(
+    Widget homebody = ListView(
       children: [
         Column(
           children: [
@@ -51,7 +48,7 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.all(40),
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.blueAccent,
+                color: Colors.blue,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
@@ -211,76 +208,36 @@ class _HomePageState extends State<HomePage> {
       ],
     );
 
-    final pages = [
-      HomePage,
-      CategoryPage(initialCategory: '전체',),
-      AddPage(),
-      Center(child: Text('채팅')),
-      MypagePage(),
-    ];
-
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
-        title: Text('중고상점',
+        title: Text(
+          'GS27',
           style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight(800)
+            color: Colors.blue,
+            fontWeight: FontWeight.w800,
           ),
         ),
         centerTitle: false,
         titleSpacing: 30.0,
         actions: [
-          IconButton(onPressed: (){
-            setState(() {
-            });
-          }, icon: Icon(Icons.notifications)),
-          IconButton(onPressed: (){
-            setState(() {
-            });
-          }, icon: Icon(Icons.settings))
-        ],
-        backgroundColor: Colors.white,
-      ),
-
-      body: pages[currentIndex],
-
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
-        selectedFontSize: 9,
-        unselectedFontSize: 9,
-        selectedItemColor: Colors.blueAccent,
-        unselectedItemColor: Colors.grey[400],
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home),label: '홈'),
-          BottomNavigationBarItem(icon: Icon(Icons.menu),label:'카테고리'),
-          BottomNavigationBarItem(
-            icon: Container(
-              width: 55,
-              height: 55,
-              decoration: BoxDecoration(
-                color: Colors.blueAccent,
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.add,
-                color: Colors.white,
-                size: 32,
-              ),
-            ),
-            label: '',
+          IconButton(
+            onPressed: () {
+              setState(() {});
+            },
+            icon: Icon(Icons.notifications),
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.chat),label: '채팅'),
-          BottomNavigationBarItem(icon: Icon(Icons.person),label: '마이페이지'),
+          IconButton(
+            onPressed: () {
+              setState(() {});
+            },
+            icon: Icon(Icons.settings),
+          ),
         ],
+        backgroundColor: Colors.white,
       ),
+
+      body: homebody,
     );
   }
 }

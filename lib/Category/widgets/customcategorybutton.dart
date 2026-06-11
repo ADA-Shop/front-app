@@ -21,7 +21,7 @@ class Customcategorybutton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            color: Colors.blueAccent,
+            color: Colors.blue,
             fontWeight: FontWeight.w700,
           ),
         ),

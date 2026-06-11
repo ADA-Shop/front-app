@@ -11,7 +11,7 @@ class Custombox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10, left: 15, right: 15),
+      margin: EdgeInsets.only(top: 20, left: 17, right: 17),
       padding: const EdgeInsets.all(15),
       width: double.infinity,
       decoration: BoxDecoration(
